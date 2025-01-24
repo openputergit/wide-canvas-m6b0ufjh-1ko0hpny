@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skeumorphic Multi-App Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        .skeumorphic {
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+        }
+        .skeumorphic-inset {
+            background: linear-gradient(145deg, #e6e6e6, #ffffff);
+            box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .progress-bar {
+            animation: progress 600s linear;
+        }
+        @keyframes progress {
+            0% { width: 100%; }
+            100% { width: 0%; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-[Poppins]">
+    <div class="max-w-md mx-auto min-h-screen bg-white">
+        <!-- Tab Navigation -->
+        <div class="flex justify-around p-4 bg-white skeumorphic">
+            <button onclick="switchTab('gharkhojo')" class="tab-btn p-2 rounded-lg flex flex-col items-center">
+                <i class="bi bi-house text-2xl"></i>
+                <span class="text-xs">GharKhojo</span>
+            </button>
+            <button onclick="switchTab('stationery')" class="tab-btn p-2 rounded-lg flex flex-col items-center">
+                <i class="bi bi-pencil text-2xl"></i>
+                <span class="text-xs">Stationery</span>
+            </button>
+            <button onclick="switchTab('payments')" class="tab-btn p-2 rounded-lg flex flex-col items-center">
+                <i class="bi bi-currency-rupee text-2xl"></i>
+                <span class="text-xs">Payments</span>
+            </button>
+        </div>
+
+        <!-- GharKhojo Tab -->
+        <div id="gharkhojo" class="tab-content active p-4">
+            <div class="skeumorphic rounded-xl p-4 mb-4">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="skeumorphic-inset flex-1 rounded-lg p-2">
+                        <input type="text" placeholder="Search properties..." class="w-full bg-transparent outline-none">
+                    </div>
+                    <i class="bi bi-filter text-xl"></i>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <button class="skeumorphic p-4 rounded-lg text-center">
+                        <i class="bi bi-house-door text-2xl text-blue-600"></i>
+                        <p class="text-sm mt-2">Buy</p>
+                    </button>
+                    <button class="skeumorphic p-4 rounded-lg text-center">
+                        <i class="bi bi-key text-2xl text-green-600"></i>
+                        <p class="text-sm mt-2">Rent</p>
+                    </button>
+                    <button class="skeumorphic p-4 rounded-lg text-center">
+                        <i class="bi bi-tags text-2xl text-orange-600"></i>
+                        <p class="text-sm mt-2">Sell</p>
+                    </button>
+                    <button class="skeumorphic p-4 rounded-lg text-center">
+                        <i class="bi bi-patch-check text-2xl text-purple-600"></i>
+                        <p class="text-sm mt-2">Verified</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stationery Tab -->
+        <div id="stationery" class="tab-content p-4">
+            <div class="skeumorphic rounded-xl p-4 mb-4">
+                <div class="skeumorphic-inset rounded-lg p-2 mb-4">
+                    <input type="text" placeholder="Search for textbooks, stationery, or more..." class="w-full bg-transparent outline-none">
+                </div>
+
+                <div class="relative h-40 skeumorphic rounded-lg mb-4 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1456735190827-d1262f71b8a3" alt="Banner" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
+                        <h3 class="font-bold">Exam Prep Essentials</h3>
+                        <p class="text-sm">Get 20% off on all study materials</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-4 mb-4">
+                    <button class="skeumorphic p-4 rounded-lg text-center">
+                        <i class="bi bi-book text-2xl text-blue-600"></i>
+                        <p class="text-xs mt-2">Textbooks</p>
+                    </button>
+                    <button class="skeumorphic p-4 rounded-lg text-center">
+                        <i class="bi bi-pencil text-2xl text-green-600"></i>
+                        <p class="text-xs mt-2">Stationery</p>
+                    </button>
+                    <button class="skeumorphic p-4 rounded-lg text-center">
+                        <i class="bi bi-journal-text text-2xl text-orange-600"></i>
+                        <p class="text-xs mt-2">Lab Records</p>
+                    </button>
+                </div>
+
+                <button class="w-full skeumorphic p-4 rounded-lg text-center bg-blue-500 text-white font-bold">
+                    Get It in 10 Minutes!
+                </button>
+
+                <div class="mt-4">
+                    <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                        <div class="progress-bar h-full bg-blue-500 rounded-full"></div>
+                    </div>
+                    <p class="text-xs text-center mt-2">10:00 minutes remaining for instant delivery</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payments Tab -->
+        <div id="payments" class="tab-content p-4">
+            <div class="skeumorphic rounded-xl p-4 mb-4">
+                <div class="skeumorphic-inset rounded-lg p-2 mb-4">
+                    <input type="text" placeholder="Search friends, merchants, or bills" class="w-full bg-transparent outline-none">
+                </div>
+
+                <div class="grid grid-cols-3 gap-4 mb-4">
+                    <button class="skeumorphic p-4 rounded-lg text-center">
+                        <i class="bi bi-qr-code-scan text-2xl text-purple-600"></i>
+                        <p class="text-xs mt-2">Scan QR</p>
+                    </button>
+                    <button class="skeumorphic p-4 rounded-lg text-center">
+                        <i class="bi bi-people text-2xl text-blue-600"></i>
+                        <p class="text-xs mt-2">Pay Contacts</p>
+                    </button>
+                    <button class="skeumorphic p-4 rounded-lg text-center">
+                        <i class="bi bi-receipt text-2xl text-green-600"></i>
+                        <p class="text-xs mt-2">Pay Bills</p>
+                    </button>
+                </div>
+
+                <div class="skeumorphic rounded-lg p-4 mb-4">
+                    <h3 class="font-bold mb-2">Smart Bill Tracker</h3>
+                    <div class="flex items-center gap-2 text-sm">
+                        <i class="bi bi-lightning-charge text-yellow-500"></i>
+                        <p>Electricity bill due in 3 days</p>
+                    </div>
+                </div>
+
+                <div class="skeumorphic rounded-lg p-4">
+                    <h3 class="font-bold mb-2">Recent Transactions</h3>
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white">
+                            <i class="bi bi-person"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium">John Doe</p>
+                            <p class="text-sm text-gray-500">₹500 • Today</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
